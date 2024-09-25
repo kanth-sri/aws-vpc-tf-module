@@ -1,6 +1,6 @@
 #Creating a VPC
 resource "aws_vpc" "main" {
-  cidr_block       = "10.0.0.0/16"
+  cidr_block       = var.vpc_cidr
   instance_tenancy = "default"
   enable_dns_hostnames = true
 
@@ -107,7 +107,7 @@ resource "aws_route_table" "private_nat" {
 
   route {
     cidr_block = "0.0.0.0/0"
-    gateway_id = aws_nat_gateway.natgw.id
+    nat_gateway_id = aws_nat_gateway.natgw.id
   }
 
   tags = merge(
@@ -123,7 +123,7 @@ resource "aws_route_table" "DB_nat" {
 
   route {
     cidr_block = "0.0.0.0/0"
-    gateway_id = aws_nat_gateway.natgw.id
+    nat_gateway_id = aws_nat_gateway.natgw.id
   }
 
   tags = merge(
