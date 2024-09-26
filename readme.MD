@@ -1,40 +1,37 @@
-#AWS VPC Custome Module
+# AWS VPC Custome Module
 
 This module is going to create the following resources. for HA we are going to get first 2 AZ.
 
-VPC
-Internet Gateway associated with VPC
-2 Public Subnets
-2 Private Subnets
-2 Database Subnets
-Database subnet group
-EIP
-NAT Gateway
-Public Route table
-Private Route table
-Database Route table
-Routes
-Route table associations with subnets
-Peering with default VPC(if Required)
-Peering routes in acceptor and requestor route tables
-Inputs
-project_name (Mandatory): User must supply their project name.
-environment (Mandatory): User must supply their environment name.
-vpc_cidr (Mandatory): User must supply their VPC CIDR.
-enable_dns_hostnames (Optional): defaults to true.
-common_tags (Optional): Default is empty. User can supply tags in map(string) format.
-vpc_tags (Optional): Default is empty. User can supply tags in map(string) format.
-igw_tags (Optional): Default is empty. User can supply tags in map(string) format.
-public_subnet_cidrs (Mandatory): User must supply only 2 valid public subnet CIDR.
-public_subnet_tags (Optional): Default is empty. User can supply tags in map(string) format.
-private_subnet_cidrs (Mandatory): User must supply only 2 valid private subnet CIDR.
-private_subnet_tags (Optional): Default is empty. User can supply tags in map(string) format.
-database_subnet_cidrs (Mandatory): User must supply only 2 valid database subnet CIDR.
-database_subnet_tags (Optional): Default is empty. User can supply tags in map(string) format.
-db_subnet_group_tags (Optional): Default is empty. User can supply tags in map(string) format.
-nat_gateway_tags (Optional): Default is empty. User can supply tags in map(string) format.
-public_route_table_tags (Optional): Default is empty. User can supply tags in map(string) format.
-private_route_table_tags (Optional): Default is empty. User can supply tags in map(string) format.
-database_route_table_tags (Optional): Default is empty. User can supply tags in map(string) format.
-is_peering_required (Optional): defaults to false
-vpc_peering_tags (Optional): Default is empty. User can supply tags in map(string) format.
+* VPC
+* Internet Gateway associated with VPC
+* 2 Public Subnets
+* 2 Private Subnets
+* 2 Database Subnets
+* Database subnet group
+* EIP
+* NAT Gateway
+* Public Route table
+* Private Route table
+* Database Route table
+* Routes
+* Route table associations with subnets
+* Peering with default VPC(if Required)
+* Peering routes in acceptor and requestor route tables
+# Inputs
+* project_name (Mandatory): User must supply their project name.
+* environment (Mandatory): User must supply their environment name.
+* vpc_cidr (Mandatory): User must supply their VPC CIDR.
+* common_tags (Optional): Default is empty. User can supply tags in map(string) format.
+* vpc_tags (Optional): Default is empty. User can supply tags in map(string) format.
+* ipv4_public_cidr_blocks (Mandatory): User must supply only 2 valid public subnet CIDR.
+* subnet_tags (Optional): Default is empty. User can supply tags in map(string) format.
+* privatesubnet_ipv4_cidr_blocks (Mandatory): User must supply only 2 valid private subnet CIDR.
+* dbsubnet_ipv4_cidr_blocks (Mandatory): User must supply only 2 valid database subnet CIDR.
+* is_peering_required (Optional): defaults to false
+
+# OUTPUTS
+
+* vpc_id : vpc id created
+* public_subnet_ids : list of 2 public subnet ids
+* private_subnet_ids : list of 2 private subnet ids
+* db_subnet_ids : list of 2 db subnet ids
