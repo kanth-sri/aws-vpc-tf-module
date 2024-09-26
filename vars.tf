@@ -13,7 +13,7 @@ variable "vpc_tags" {
 variable "project" {
     type = string
 }
-variable "environmnet" {
+variable "environment" {
   type = string
 }
 variable "ipv4_public_cidr_blocks" {
