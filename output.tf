@@ -16,3 +16,7 @@ output "private_subent_ids" {
 output "db_subnet_ids" {
   value = aws_subnet.database[*].id
 }
+output "aws_db_subnet_group" {
+  value = aws_db_subnet_group.default.name
+  
+}
